@@ -103,9 +103,48 @@ def draw():
         draw_counters(eggs_collected, lives)
 
 def draw_lairs(lairs_to_draw):
-    pass
+    #Esto itera por cada guarida.
+    for lair in lairs_to_draw:
+        #Esto dibuja un actor dragon para cada guarida.
+        lair["dragon"].draw()
+        if lair["egg_hidden"] is False:
+            #Esto pinta los huevos de cada guarida si no estan ocultos actualmente.
+            lair["eggs"].draw()
 
 def draw_counters(eggs_collected, lives):
+    #Esto dibuja un icono para representar el numero de huevos recolectados.
+    screen.blit("egg-count", (0, HEIGHT - 30))
+    screen.draw.text(str(eggs_collected),
+                     fontsize=40,
+                     pos=(30, HEIGHT - 30),
+                     color=FONT_COLOR)
+    #Esto dibuja un icono para representar la cantidad de vidas que le quedan al jugador.
+    screen.blit("life-count", (60, HEIGHT - 30))
+    screen.draw.text(str(lives),
+                     fontsize=40,
+                     pos=(90, HEIGHT - 30),
+                     color=FONT_COLOR)
+    
+def update():
+    if keyboard.right:
+        hero.x += MOVE_DISTANCE
+        if hero.x > WIDTH:
+            hero.x = WIDTH
+    elif keyboard.left:
+        hero.x -= MOVE_DISTANCE
+        if hero.x < 0:
+            hero.x = 0
+    elif keyboard.down:
+        hero.y += MOVE_DISTANCE
+        if hero.y > HEIGHT:
+            hero.y = HEIGHT
+    elif keyboard.up:
+        hero.y -= MOVE_DISTANCE
+        if hero.y < 0:
+            hero.y = 0
+    check_for_collisions()
+    
+def check_for_collisions():
     pass
-
+    
 pgzrun.go()

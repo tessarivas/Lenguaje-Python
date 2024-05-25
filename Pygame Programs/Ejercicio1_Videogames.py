@@ -1,6 +1,21 @@
+'''
+FUNCIONES
+# screen.fill(color) 
+# screen.draw.line(x, y, color)
+# screen.draw.text(string, (x, y), fontsize, color)
+# objetoCarro.collidepoint(x, y)
+# objetoCarro.x
+# objetoCarro.y
+# quit()
+
+LOGICA
+# Avanzar con los clicks 100 hacia la derecha hasta alcanzar 
+# La meta, ya alcanzada se cierra el programa
+'''
+
 import pgzrun
 
-carro1 = Actor("carro", (150, 350))
+carro1 = Actor("carro1", (150, 350))
 
 def draw():
     screen.clear()
@@ -19,8 +34,8 @@ def draw_linea_texto():
 
 def avanzar():
     carro1.x += 100
-    if carro1.x >= 600: 
-        print("LLEGO A LA META")
+    if carro1.x >= 700: 
+        print("LLEGO A LA META!")
         quit()
 
 def on_mouse_down(pos):
@@ -32,16 +47,3 @@ def on_mouse_down(pos):
         quit()
 
 pgzrun.go()
-
-## FUNCIONES
-# screen.fill(color) 
-# screen.draw.line(x, y, color)
-# screen.draw.text(string, (x, y), fontsize, color)
-# objetoCarro.collidepoint(x, y)
-# objetoCarro.x
-# objetoCarro.y
-# quit()
-
-### LOGICA
-# avanzar con los clicks 100 hacia la derecha hasta alcanzar 
-# la meta, ya alcanzada se cierra el programa
